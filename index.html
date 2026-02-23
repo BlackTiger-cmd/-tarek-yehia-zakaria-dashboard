@@ -1,147 +1,90 @@
-her<!DOCTYPE html>
+here<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Control Panel | طارق يحيى زكريا حسن الاسود</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>نظام إدارة البيانات | طارق يحيى زكريا حسن الاسود</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #0d1117; color: #c9d1d9; margin: 0; display: flex; overflow: hidden; }
-        .sidebar { width: 280px; background-color: #161b22; height: 100vh; padding: 25px 20px; border-left: 1px solid #30363d; box-shadow: 2px 0 10px rgba(0,0,0,0.3); flex-shrink: 0; }
-        .sidebar h2 { color: #58a6ff; text-align: center; margin-bottom: 30px; border-bottom: 1px solid #30363d; padding-bottom: 15px; }
-        .sidebar nav a { display: flex; align-items: center; padding: 12px 15px; margin-bottom: 10px; color: #c9d1d9; text-decoration: none; border-radius: 8px; transition: background-color 0.3s, color 0.3s; }
-        .sidebar nav a:hover, .sidebar nav a.active { background-color: #30363d; color: #58a6ff; }
-        .sidebar nav a svg { margin-left: 10px; width: 20px; height: 20px; } /* For SVG icons */
+        :root { --main-bg: #1a1a2e; --sidebar-bg: #16213e; --accent: #4ecca3; --text: #eeeeee; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--main-bg); color: var(--text); display: flex; }
+        
+        /* القائمة الجانبية */
+        .sidebar { width: 260px; background: var(--sidebar-bg); height: 100vh; position: fixed; padding: 20px; border-left: 1px solid #2d3436; }
+        .sidebar h2 { color: var(--accent); font-size: 20px; margin-bottom: 30px; text-align: center; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        .nav-item { padding: 15px; display: flex; align-items: center; cursor: pointer; transition: 0.3s; border-radius: 8px; margin-bottom: 5px; }
+        .nav-item:hover { background: var(--accent); color: var(--main-bg); }
+        .nav-item i { margin-left: 15px; }
 
-        .main-content { flex: 1; padding: 30px 40px; overflow-y: auto; height: 100vh; }
-        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #58a6ff; padding-bottom: 20px; margin-bottom: 30px; }
-        .header h1 { font-size: 28px; color: #e2e8f0; margin: 0; }
-        .status-badge { background: #238636; color: white; padding: 8px 15px; border-radius: 20px; font-size: 14px; display: flex; align-items: center; }
-        .status-badge::before { content: '•'; font-size: 24px; line-height: 0; margin-left: 8px; color: #34d399; }
+        /* المحتوى الرئيسي */
+        .main { margin-right: 260px; width: 100%; padding: 30px; }
+        .header { display: flex; justify-content: space-between; align-items: center; background: var(--sidebar-bg); padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .user-box { border-right: 4px solid var(--accent); padding-right: 15px; }
+        .user-name { font-size: 20px; font-weight: bold; color: var(--accent); }
 
-        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 30px; }
-        .widget { background: #161b22; padding: 25px; border-radius: 12px; border: 1px solid #30363d; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        .widget h3 { margin-top: 0; color: #e2e8f0; font-size: 20px; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-bottom: 15px; }
-        .widget p { color: #94a3b8; font-size: 14px; line-height: 1.6; }
-        .widget .value { font-size: 36px; font-weight: bold; color: #58a6ff; margin-bottom: 10px; }
-        .action-button { background-color: #2ea44f; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; margin-top: 15px; font-size: 14px; transition: background-color 0.3s; display: block; width: fit-content; }
-        .action-button:hover { background-color: #2c974b; }
-        .alert-button { background-color: #c93a40; }
-        .alert-button:hover { background-color: #af3238; }
+        /* البطاقات الإحصائية */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .stat-card { background: var(--sidebar-bg); padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #2d3436; transition: transform 0.3s; }
+        .stat-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .stat-card i { font-size: 40px; color: var(--accent); margin-bottom: 15px; }
+        .stat-card h3 { font-size: 28px; margin-bottom: 5px; }
 
-        .chart-widget { height: 250px; }
-        .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #6a737d; padding-top: 20px; border-top: 1px solid #30363d; }
+        /* جدول البيانات */
+        .data-table { width: 100%; margin-top: 30px; background: var(--sidebar-bg); border-radius: 15px; overflow: hidden; }
+        .data-table th, .data-table td { padding: 15px; text-align: center; border-bottom: 1px solid #2d3436; }
+        .data-table th { background: rgba(78, 204, 163, 0.1); color: var(--accent); }
     </style>
 </head>
 <body>
+
     <div class="sidebar">
-        <h2>Master Control</h2>
-        <nav>
-            <a href="#" class="active">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"></path></svg>
-                لوحة التحكم الرئيسية
-            </a>
-            <a href="#">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
-                إدارة المستخدمين
-            </a>
-            <a href="#">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
-                سجلات الأخطاء والتحذيرات
-            </a>
-            <a href="#">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>
-                إعدادات التطبيق العام
-            </a>
-        </nav>
+        <h2>نظام السيطرة</h2>
+        <div class="nav-item"><i class="fas fa-chart-line"></i> لوحة البيانات</div>
+        <div class="nav-item"><i class="fas fa-users"></i> قاعدة المستخدمين</div>
+        <div class="nav-item"><i class="fas fa-database"></i> السيرفرات المتصلة</div>
+        <div class="nav-item"><i class="fas fa-shield-alt"></i> إعدادات الأمان</div>
+        <div class="nav-item"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</div>
     </div>
-    <div class="main-content">
+
+    <div class="main">
         <div class="header">
-            <h1>لوحة تحكم النظام الشاملة - المطور: طارق يحيى زكريا حسن الاسود</h1>
-            <div class="status-badge">النظام يعمل بكفاءة </div>
+            <div class="user-box">
+                <p>مرحباً بالقائد المطور:</p>
+                <div class="user-name">طارق يحيى زكريا حسن الاسود</div>
+            </div>
+            <div class="status">الحالة: <span style="color:var(--accent)">● متصل الآن</span></div>
         </div>
 
-        <div class="dashboard-grid">
-            <div class="widget">
-                <h3>المستخدمين النشطين</h3>
-                <div class="value">4,789</div>
-                <p>إجمالي المستخدمين: 12,345</p>
-                <button class="action-button">عرض كل المستخدمين</button>
-            </div>
-
-            <div class="widget">
-                <h3>حالة Firebase</h3>
-                <div class="value" style="color:#22c55e;">متصل</div>
-                <p>آخر تحديث: منذ ثوانٍ</p>
-                <button class="action-button">اختبار الاتصال</button>
-            </div>
-
-            <div class="widget">
-                <h3>إشعارات النظام</h3>
-                <div class="value">34</div>
-                <p>إشعارات جديدة غير مقروءة</p>
-                <button class="action-button alert-button">إرسال إشعار عام</button>
-            </div>
-
-            <div class="widget">
-                <h3>إدارة المحتوى</h3>
-                <div class="value">وحدة التحكم</div>
-                <p>تعديل/إضافة محتوى التطبيق</p>
-                <button class="action-button">فتح محرر المحتوى</button>
-            </div>
-
-            <div class="widget">
-                <h3>التحكم بالميزات</h3>
-                <div class="value">تشغيل/إيقاف</div>
-                <p>تحكم في ميزات التطبيق (VIP, تجريبية)</p>
-                <button class="action-button">ضبط الميزات</button>
-            </div>
-
-            <div class="widget">
-                <h3>تقارير الأداء</h3>
-                <div class="value">متوفرة</div>
-                <p>تحليل أداء التطبيق والمخدم</p>
-                <button class="action-button">عرض التقارير</button>
-            </div>
+        <div class="stats">
+            <div class="stat-card"><i class="fas fa-microchip"></i><h3>98%</h3><p>أداء المعالج</p></div>
+            <div class="stat-card"><i class="fas fa-globe"></i><h3>142</h3><p>مواقع نشطة</p></div>
+            <div class="stat-card"><i class="fas fa-lock"></i><h3>مؤمن</h3><p>حماية Firebase</p></div>
+            <div class="stat-card"><i class="fas fa-code-branch"></i><h3>V 2.0</h3><p>إصدار النظام</p></div>
         </div>
 
-        <div class="widget chart-widget" style="margin-top: 25px;">
-            <h3>تفاعل المستخدمين الأسبوعي</h3>
-            <canvas id="masterChart"></canvas>
-        </div>
-
-        <div class="footer">
-            جميع الحقوق محفوظة للمطور: طارق يحيى زكريا حسن الاسود © 2026 - نظام إدارة Black Tiger
-        </div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>تاريخ العملية</th>
+                    <th>نوع الإجراء</th>
+                    <th>حالة المطابقة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026-02-23</td>
+                    <td>تحديث الملف الشخصي</td>
+                    <td><span style="color:var(--accent)">مطابق للهوية</span></td>
+                </tr>
+                <tr>
+                    <td>2026-02-23</td>
+                    <td>تأمين المستودع</td>
+                    <td><span style="color:var(--accent)">ناجح</span></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <script>
-        const ctx = document.getElementById('masterChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'],
-                datasets: [{
-                    label: 'عدد الجلسات اليومية',
-                    data: [1200, 1500, 1300, 1800, 1700, 2200, 2500],
-                    borderColor: '#58a6ff',
-                    backgroundColor: 'rgba(88, 166, 255, 0.2)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { labels: { color: '#c9d1d9' } }
-                },
-                scales: {
-                    x: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } },
-                    y: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } }
-                }
-            }
-        });
-    </script>
 </body>
 </html>
