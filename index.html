@@ -1,308 +1,102 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>غرفة التحكم المركزية | طارق يحيى زكريا حسن الاسود</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة طارق يحيي زكريا حسن الاسود للبرمجيات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #0071e3; --secondary: #1d1d1f; --text: #333; --light: #f5f5f7; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background: var(--light); color: var(--text); line-height: 1.6; }
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        /* الهيدر */
+        header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #ddd; }
+        nav { max-width: 1200px; margin: auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; font-weight: bold; color: var(--secondary); }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--secondary); font-size: 0.9rem; font-weight: 500; }
 
-<style>
+        /* القسم الرئيسي */
+        .hero { padding: 140px 20px 80px; text-align: center; background: white; }
+        .hero h1 { font-size: 3rem; color: var(--secondary); margin-bottom: 20px; letter-spacing: -1px; }
+        .hero p { font-size: 1.4rem; color: #86868b; max-width: 800px; margin: auto; margin-bottom: 30px; }
+        .btn-main { background: var(--primary); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; }
 
-:root{
---bg:#0a0f1c;
---glass:rgba(255,255,255,0.05);
---accent:#00f0ff;
---worker:#ffb020;
---client:#2ecc71;
---danger:#ff3b3b;
-}
+        /* قسم الخدمات */
+        .services { padding: 80px 20px; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: white; padding: 40px; border-radius: 20px; transition: 0.3s; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .service-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+        /* قسم التوثيق (مهم للمراجع) */
+        .verification { background: var(--secondary); color: white; padding: 60px 20px; text-align: center; }
+        .cert-box { border: 2px solid var(--primary); padding: 20px; display: inline-block; border-radius: 15px; margin-top: 20px; }
 
-body{
-background:linear-gradient(135deg,#0a0f1c,#111827);
-color:#fff;
-min-height:100vh;
-display:flex;
-overflow-x:hidden;
-}
-
-/* زر القائمة */
-.menu-btn{
-position:fixed;
-top:20px;
-right:20px;
-background:var(--accent);
-color:#000;
-border:none;
-padding:12px 15px;
-border-radius:12px;
-font-size:18px;
-cursor:pointer;
-z-index:3000;
-box-shadow:0 0 20px var(--accent);
-transition:.3s;
-}
-.menu-btn:hover{transform:scale(1.1)}
-
-/* القائمة الجانبية */
-.sidebar{
-position:fixed;
-right:-300px;
-top:0;
-width:300px;
-height:100%;
-background:rgba(10,15,28,0.95);
-backdrop-filter:blur(15px);
-padding:30px 20px;
-transition:.4s ease;
-border-left:2px solid var(--accent);
-z-index:2000;
-}
-.sidebar.active{right:0}
-
-.sidebar h2{
-text-align:center;
-margin-bottom:30px;
-color:var(--accent);
-}
-
-.nav-item{
-padding:15px;
-margin-bottom:10px;
-border-radius:10px;
-cursor:pointer;
-transition:.3s;
-background:var(--glass);
-}
-.nav-item:hover{
-background:var(--accent);
-color:#000;
-}
-
-/* المحتوى */
-.main{
-flex:1;
-padding:100px 30px 40px 30px;
-width:100%;
-}
-
-/* الهيدر */
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:30px;
-}
-
-.header h1{
-font-weight:900;
-color:var(--accent);
-}
-
-.status{
-background:rgba(46,204,113,.2);
-padding:8px 15px;
-border-radius:20px;
-color:#2ecc71;
-font-size:14px;
-}
-
-/* كروت */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin-bottom:30px;
-}
-
-.card{
-background:var(--glass);
-padding:20px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,.1);
-transition:.3s;
-}
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 20px rgba(0,240,255,.4);
-}
-
-.card i{
-font-size:22px;
-margin-bottom:10px;
-color:var(--accent);
-}
-
-/* أزرار */
-.actions{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-bottom:30px;
-}
-
-.btn{
-padding:10px 18px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-transition:.3s;
-}
-
-.primary{background:var(--accent);color:#000;}
-.worker{background:var(--worker);color:#000;}
-.client{background:var(--client);color:#000;}
-.danger{background:var(--danger);color:#fff;}
-
-.btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 15px rgba(255,255,255,.3);
-}
-
-/* جداول */
-.table-box{
-background:var(--glass);
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:15px;
-}
-
-th,td{
-padding:10px;
-border-bottom:1px solid rgba(255,255,255,.1);
-font-size:14px;
-}
-
-th{color:var(--accent);}
-
-.badge{
-padding:4px 10px;
-border-radius:20px;
-font-size:12px;
-}
-
-.success{
-background:rgba(46,204,113,.2);
-color:#2ecc71;
-}
-
-/* الفوتر */
-.footer{
-margin-top:30px;
-padding:20px;
-text-align:center;
-background:var(--glass);
-border-radius:15px;
-border-right:3px solid var(--accent);
-font-size:14px;
-}
-
-</style>
+        /* الفوتر */
+        footer { padding: 50px 20px; background: white; border-top: 1px solid #ddd; text-align: center; }
+        .footer-info { margin-bottom: 20px; color: #86868b; }
+    </style>
 </head>
-
 <body>
 
-<button class="menu-btn" onclick="toggleMenu()">
-<i class="fas fa-bars"></i>
-</button>
+    <header>
+        <nav>
+            <div class="logo">مؤسسة طارق يحيي زكريا</div>
+            <ul class="nav-links">
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#">الخدمات</a></li>
+                <li><a href="#">المشاريع</a></li>
+                <li><a href="#">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="sidebar" id="sidebar">
-<h2>إعدادات النظام</h2>
+    <section class="hero">
+        <h1>مستقبل البرمجيات يبدأ من هنا</h1>
+        <p>مؤسسة طارق يحيي زكريا حسن الاسود للحلول التقنية المتكاملة وتطوير النظم البرمجية لمطوري الهواتف الذكية.</p>
+        <a href="#" class="btn-main">اكتشف خدماتنا</a>
+    </section>
 
-<div class="nav-item"><i class="fas fa-database"></i> نسخ احتياطي فوري</div>
-<div class="nav-item"><i class="fas fa-user-plus"></i> إضافة عامل جديد</div>
-<div class="nav-item"><i class="fas fa-file-pdf"></i> استخراج تقرير PDF</div>
-<div class="nav-item"><i class="fas fa-key"></i> تغيير مفاتيح التشفير</div>
-<div class="nav-item"><i class="fas fa-server"></i> إعادة تشغيل السيرفر</div>
+    <section class="services">
+        <h2 class="section-title">خدماتنا الاحترافية</h2>
+        <div class="grid">
+            <div class="service-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>تطوير الأنظمة</h3>
+                <p>تصميم وبناء أنظمة برمجية متطورة تتناسب مع متطلبات السوق العالمي.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>تطبيقات Transsion</h3>
+                <p>خبرة واسعة في ربط وتطوير التطبيقات لمنصات Transsion العالمية.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-user-shield"></i>
+                <h3>تأمين البيانات</h3>
+                <p>حلول أمنية متكاملة لحماية بيانات المستخدمين والشركات.</p>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <section class="verification">
+        <h2>شهادة الاعتماد الرسمي</h2>
+        <p>هذا الموقع مسجل كمنصة رسمية لمطوري الأنظمة التابعين للمؤسسة</p>
+        <div class="cert-box">
+            المالك والمدير العام: طارق يحيي زكريا حسن الاسود
+        </div>
+    </section>
 
-<div class="main">
-
-<div class="header">
-<div>
-<h1>طارق يحيى زكريا حسن الاسود</h1>
-<p>المدير العام لوحدة التحكم المركزية</p>
-</div>
-<div class="status">● نظام مؤمن AES-256</div>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<i class="fas fa-microchip"></i>
-<p>المعالجة</p>
-<h2>99.2%</h2>
-</div>
-
-<div class="card">
-<i class="fas fa-users"></i>
-<p>طاقم العمل</p>
-<h2>84 موظف</h2>
-</div>
-
-<div class="card">
-<i class="fas fa-wallet"></i>
-<p>الأرباح</p>
-<h2>+15,400</h2>
-</div>
-
-<div class="card">
-<i class="fas fa-shield-alt"></i>
-<p>قوة التشفير</p>
-<h2>AES-256</h2>
-</div>
-
-</div>
-
-<div class="actions">
-<button class="btn primary"><i class="fas fa-sync"></i> تحديث السيرفر</button>
-<button class="btn worker"><i class="fas fa-hard-hat"></i> كشف العمال</button>
-<button class="btn client"><i class="fas fa-user-tie"></i> عقود العملاء</button>
-<button class="btn danger"><i class="fas fa-exclamation-triangle"></i> وضع الطوارئ</button>
-</div>
-
-<div class="table-box">
-<h3><i class="fas fa-tools"></i> حالة العمال الميدانيين</h3>
-<table>
-<tr><th>الاسم</th><th>الموقع</th><th>الحالة</th></tr>
-<tr><td>أحمد سمير</td><td>الموقع الرئيسي</td><td><span class="badge success">نشط</span></td></tr>
-<tr><td>هاني سلامة</td><td>مكتب الإسكندرية</td><td><span class="badge success">نشط</span></td></tr>
-</table>
-</div>
-
-<div class="table-box">
-<h3><i class="fas fa-handshake"></i> طلبات العملاء الجديدة</h3>
-<table>
-<tr><th>العميل</th><th>الخدمة</th><th>الميزانية</th></tr>
-<tr><td>شركة النور</td><td>نظام أمان</td><td>$5,000</td></tr>
-<tr><td>تكنو برو</td><td>تطوير ويب</td><td>$3,200</td></tr>
-</table>
-</div>
-
-<div class="footer">
-تم استخراج هذه البيانات بناءً على هوية المطور: <strong style="color:var(--accent)">طارق يحيى زكريا حسن الاسود</strong><br>
-ID: TAREK-PRO-2026-X99
-</div>
-
-</div>
-
-<script>
-function toggleMenu(){
-document.getElementById("sidebar").classList.toggle("active");
-}
-</script>
+    <footer>
+        <div class="footer-info">
+            <p>مقر المؤسسة: جمهورية مصر العربية</p>
+            <p>البريد الإلكتروني الرسمي للمطور: طارق يحيي زكريا حسن الاسود</p>
+        </div>
+        <p>© 2026 جميع الحقوق محفوظة لمؤسسة طارق يحيي زكريا حسن الاسود</p>
+    </footer>
 
 </body>
 </html>
+
