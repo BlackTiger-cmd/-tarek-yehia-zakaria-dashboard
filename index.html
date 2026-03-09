@@ -3,128 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة المطور الرسمي | طارق يحيى زكريا حسن الاسود</title>
     
-    <title>طارق يحيى زكريا | بلاك تايجر للخدمات المنزلية</title>
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://blacktiger-cmd.github.io/BlackTiger-App/">
-    <meta property="og:title" content="المطور طارق يحيى زكريا | تطبيق بلاك تايجر">
-    <meta property="og:description" content="تطبيق بلاك تايجر للخدمات المنزلية: المطور الرسمي طارق يحيى زكريا حسن الاسود.">
-    <meta property="og:image" content="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800">
-    
-    <meta name="application-name" content="بلاك تايجر - طارق يحيى زكريا">
-    <meta name="description" content="الموقع الرسمي للمطور طارق يحيى زكريا حسن الاسود - تطبيق بلاك تايجر للخدمات المنزلية في مصر.">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "بلاك تايجر للخدمات المنزلية",
-      "operatingSystem": "ANDROID",
-      "applicationCategory": "BusinessApplication",
-      "description": "تطبيق بلاك تايجر المطور بواسطة طارق يحيى زكريا حسن الاسود.",
+      "@type": "Person",
+      "name": "طارق يحيى زكريا حسن الاسود",
+      "alternateName": "Tarek Yehia Zakaria",
+      "jobTitle": "Independent Software Developer",
       "url": "https://blacktiger-cmd.github.io/BlackTiger-App/",
-      "author": {
-        "@type": "Person",
-        "name": "طارق يحيى زكريا حسن الاسود"
-      }
+      "nationality": "Egyptian"
     }
     </script>
 
-    <link rel="icon" type="image/png" href="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=100">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
-    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Cairo', sans-serif; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; margin: 0; overflow-x: hidden; }
-        .container { width: 90%; max-width: 400px; padding: 20px; text-align: center; }
-        
-        .tiger-frame { width: 100%; height: 250px; border-radius: 30px; overflow: hidden; margin-bottom: 25px; border: 2px solid #ff8c00; box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2); background: #111; }
-        .tiger-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        :root {
+            --primary: #1a237e; /* أزرق رسمي */
+            --text-dark: #212121;
+            --bg-light: #f8f9fa;
+        }
 
-        h1 { font-size: 32px; color: #ff8c00; font-weight: 900; margin-bottom: 5px; }
-        .dev-name { color: #fff; font-size: 18px; margin-bottom: 10px; font-weight: bold; border-bottom: 1px solid #ff8c00; display: inline-block; padding-bottom: 5px; }
-        .subtitle { color: #888; font-size: 15px; margin-bottom: 30px; font-weight: 700; }
+        body {
+            font-family: 'IBM+Plex+Sans+Arabic', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-        .btn { background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); color: #fff; font-size: 22px; font-weight: 900; padding: 20px; border-radius: 20px; display: block; border: none; width: 100%; cursor: pointer; box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4); margin-bottom: 15px; text-decoration: none; }
-        .btn-video { background: transparent; color: #ff8c00; border: 2px solid #ff8c00; font-size: 18px; padding: 15px; margin-bottom: 10px; display: block; text-decoration: none; border-radius: 20px; font-weight: bold; width: 100%; }
-        .btn-reviews { background: #1a1a1a; color: #ff8c00; border: 1px solid #ff8c00; font-size: 16px; padding: 12px; box-shadow: none; margin-bottom: 25px; width: 100%; border-radius: 20px; cursor: pointer; display: block; }
+        .dev-portal {
+            background: #ffffff;
+            width: 90%;
+            max-width: 700px;
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary);
+        }
 
-        #loading-section { display: none; margin-bottom: 25px; }
-        .progress-bg { width: 100%; background: #222; height: 14px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
-        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #ff8c00, #ff4500); transition: width 0.3s ease; }
+        .header {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
 
-        #reviews-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 1000; padding: 20px; overflow-y: auto; text-align: right; }
-        .review-card { background: #111; padding: 15px; border-radius: 15px; margin-bottom: 12px; border-right: 4px solid #ff8c00; }
-        .review-card h4 { color: #ff8c00; font-size: 16px; margin-bottom: 5px; }
-        .review-card p { color: #ccc; font-size: 14px; }
+        h1 {
+            font-size: 26px;
+            margin: 0;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
 
-        .safety-note { margin-top: 25px; font-size: 14px; color: #aaa; background: rgba(255, 140, 0, 0.05); padding: 15px; border-radius: 15px; border: 1px solid #222; }
-        .footer { margin-top: 40px; color: #444; font-size: 12px; font-weight: bold; }
+        .badge {
+            display: inline-block;
+            background: #e8eaf6;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            color: #757575;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #fdfdfd;
+            padding: 15px;
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: #9e9e9e;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .verification-text {
+            background: #f1f8e9;
+            border-right: 4px solid #4caf50;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #33691e;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #bdbdbd;
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .dev-portal { padding: 25px; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="tiger-frame">
-        <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger">
+<div class="dev-portal">
+    <div class="header">
+        <h1>طارق يحيى زكريا حسن الاسود</h1>
+        <span class="badge">مطور برمجيات مستقل معتمد (Verified Individual Developer)</span>
     </div>
+
+    <span class="section-title">بيانات الاعتماد الرسمية</span>
     
-    <h1>BLACK TIGER</h1>
-    <div class="dev-name">المطور: طارق يحيى زكريا</div>
-    
-    <p class="subtitle"> أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه التطبيق الأقوى فى السوق المصريه </p>
-
-    <div id="loading-section">
-        <div class="progress-bg"><div id="bar" class="progress-bar"></div></div>
-        <div id="msg" style="color: #ff8c00; margin-top: 10px; font-weight: 900;">جاري تحضير الملف... 0%</div>
-    </div>
-    
-    <button id="main-btn" class="btn" onclick="startUpdate()">تحميل الآن</button>
-
-    <a href="https://youtube.com/shorts/jveSOwc1v0Y?feature=share" target="_blank" rel="noopener noreferrer" id="video-btn" class="btn-video">
-        📺 شرح طريقة التحميل (فيديو)
-    </a>
-
-    <button id="rev-btn" class="btn-reviews" onclick="showReviews()">آراء أعضاء بلاك تايجر ⭐</button>
-
-    <div class="safety-note">
-        <span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، التحذير الذي قد يظهر أثناء التثبيت هو إجراء روتيني من نظام الأندرويد.
-    </div>
-    
-    <div class="footer">Developer: Tarek Yehia Zakaria © 2026</div>
-</div>
-
-<div id="reviews-modal">
-    <h2 style="color: #ff8c00; margin-bottom: 20px; text-align: center;">ماذا يقول أعضاؤنا؟</h2>
-    <div id="reviews-content">
-        <div class="review-card"><h4>مدام نهى (التجمع)</h4><p>بصراحة كنت خايفة في الأول بس الشغالة اللي جتلي محترمة جداً وأمينة وخلصت شغلها بضمير.. شكراً ليكم.</p></div>
+    <div class="info-grid">
+        <div class="info-card">
+            <span class="info-label">اسم المطور الكامل:</span>
+            <span class="info-value">طارق يحيى زكريا حسن الاسود</span>
         </div>
-    <button class="btn" style="margin-top: 20px;" onclick="hideReviews()">إغلاق</button>
-</div>
+        <div class="info-card">
+            <span class="info-label">نوع التسجيل:</span>
+            <span class="info-value">فردي (Individual)</span>
+        </div>
+        <div class="info-card">
+            <span class="info-label">الموقع الجغرافي:</span>
+            <span class="info-value">جمهورية مصر العربية</span>
+        </div>
+        <div class="info-card">
+            <span class="info-label">حالة الحساب:</span>
+            <span class="info-value" style="color: #1a237e;">بانتظار مراجعة المتجر</span>
+        </div>
+    </div>
 
-<script>
-    function showReviews() { document.getElementById('reviews-modal').style.display = 'block'; }
-    function hideReviews() { document.getElementById('reviews-modal').style.display = 'none'; }
-    
-    function startUpdate() {
-        document.getElementById('main-btn').style.display = 'none';
-        document.getElementById('rev-btn').style.display = 'none';
-        document.getElementById('video-btn').style.display = 'none';
-        document.getElementById('loading-section').style.display = 'block';
-        let p = 0;
-        let t = setInterval(() => {
-            if (p >= 100) {
-                clearInterval(t);
-                window.location.href = "BlackTiger.apk";
-            } else {
-                p += 5;
-                document.getElementById('bar').style.width = p + '%';
-                document.getElementById('msg').innerHTML = "جاري تحضير ملفات النمر... " + p + "%";
-            }
-        }, 150);
-    }
-</script>
+    <span class="section-title">بيان التحقق</span>
+    <div class="verification-text">
+        يقر المطور بأن هذا النطاق هو الموقع الرسمي المعتمد لتوثيق ملكية التطبيقات وربطها بالهوية الوطنية المقدمة للمنصات الرسمية. تم إعداد هذا الموقع لتلبية متطلبات التحقق من الهوية (Identity Verification) لشركة <b>Transsion</b> والمؤسسات التابعة لها.
+    </div>
+
+    <div class="footer">
+        Official Developer Documentation Portal Portal © 2026<br>
+        Tarek Yehia Zakaria Hassan El-Aswad - Independent Developer
+    </div>
+</div>
 
 </body>
 </html>
