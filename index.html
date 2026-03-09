@@ -3,145 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طارق يحيى زكريا حسن الاسود | Android Developer Portfolio</title>
     
-    <title>المطور طارق يحيى زكريا حسن الاسود | Official Portfolio</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root {
-            --primary: #ff8c00;
-            --bg-body: #09090b;
-            --bg-card: #121214;
-            --border: #27272a;
-            --text-main: #fafafa;
-            --text-dim: #a1a1aa;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            margin: 0;
-            line-height: 1.6;
-        }
-
+        :root { --primary: #ff8c00; --bg: #0b0c10; --card: #1f2833; --text: #ffffff; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-        /* Navbar باسمك الشخصي */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-logo { font-weight: 900; font-size: 22px; color: var(--primary); }
-
-        /* Hero Section */
-        .hero { padding: 100px 0 60px; text-align: center; }
-        .hero h1 { font-size: clamp(28px, 6vw, 48px); font-weight: 900; margin: 0; }
-        .hero p { color: var(--text-dim); font-size: 18px; max-width: 700px; margin: 20px auto; }
-
-        /* Verification Badge (للمراجع) */
-        .v-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 140, 0, 0.1);
-            color: var(--primary);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 700;
-            border: 1px solid var(--primary);
-        }
-
-        /* Projects Section */
-        .section-title { font-size: 28px; margin: 60px 0 30px; border-right: 4px solid var(--primary); padding-right: 15px; }
         
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            transition: 0.3s;
-        }
+        /* Header Section */
+        header { padding: 80px 0 40px; text-align: center; border-bottom: 1px solid #1f2833; }
+        .badge { background: rgba(255, 140, 0, 0.1); color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 700; font-size: 14px; border: 1px solid var(--primary); }
+        h1 { font-size: clamp(24px, 5vw, 45px); margin: 20px 0 10px; font-weight: 900; }
+        
+        /* Projects Grid */
+        .section-title { font-size: 28px; margin: 50px 0 30px; color: var(--primary); font-weight: 900; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .project-card { background: var(--card); padding: 30px; border-radius: 15px; border: 1px solid #45a29e33; transition: 0.3s; }
         .project-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .project-card h3 { color: var(--primary); margin-top: 0; }
-        .project-card .tags { display: flex; gap: 8px; margin-top: 15px; }
-        .tag { font-size: 11px; background: #27272a; padding: 4px 10px; border-radius: 4px; color: var(--text-dim); }
-
-        /* Footer */
-        footer {
-            margin-top: 100px;
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-        .footer-info { font-weight: 900; font-size: 18px; margin-bottom: 10px; }
+        .project-card h3 { margin-top: 0; color: var(--primary); }
+        
+        /* Info Box */
+        .verification-box { background: #1a1a1d; border-right: 5px solid var(--primary); padding: 25px; margin: 40px 0; border-radius: 8px; }
+        
+        footer { padding: 50px 0; border-top: 1px solid #1f2833; text-align: center; color: #666; font-size: 14px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <nav>
-        <div class="nav-logo">TAREK YEHIA</div>
-        <div style="font-size: 13px; color: var(--text-dim);">البروفايل الرسمي للمطور</div>
-    </nav>
-
-    <section class="hero">
-        <div class="v-badge"><i class="fas fa-user-check"></i> مطور فردي موثق (Individual Developer)</div>
+    <header>
+        <span class="badge"><i class="fas fa-user-check"></i> مطور فردي موثق | Individual Developer</span>
         <h1>طارق يحيى زكريا حسن الاسود</h1>
-        <p>خبير تطوير تطبيقات الأندرويد والأنظمة السحابية. متخصص في تحويل الأفكار المعقدة إلى واجهات مستخدم سلسة وحلول تقنية متكاملة.</p>
-    </section>
+        <p style="font-size: 18px; color: #c5c6c7;">خبير تطوير تطبيقات أندرويد وبناء الأنظمة الخدمية المتكاملة</p>
+    </header>
 
-    <h2 class="section-title">المشاريع الحالية</h2>
-    <div class="project-grid">
+    <div class="verification-box">
+        <strong style="color: var(--primary);">بيان التوثيق الرسمي:</strong><br>
+        هذا الموقع هو المنصة الرسمية لتوثيق أعمال المطور <b>طارق يحيى زكريا حسن الاسود</b> والمشاريع البرمجية المرفوعة على منصات توزيع التطبيقات العالمية.
+    </div>
+
+    <h2 class="section-title">المشاريع التقنية القائمة</h2>
+    <div class="grid">
         <div class="project-card">
             <h3>Black Tiger Home Services</h3>
-            <p>منصة ذكية لخدمات المنازل، تدير العمليات اللوجستية وتتبع العمالة بشكل لحظي مع نظام دفع مؤمن.</p>
-            <div class="tags">
-                <span class="tag">Android</span>
-                <span class="tag">Firebase</span>
-                <span class="tag">API Integration</span>
-            </div>
+            <p>تطبيق خدمي متكامل لإدارة العمالة المنزلية بنظام تتبع متطور وقواعد بيانات سحابية (Firebase).</p>
         </div>
-        
         <div class="project-card">
-            <h3>Order Logic Engine</h3>
-            <p>نظام تتبع طلبات متطور يعتمد على 8 مراحل منطقية لضمان جودة الخدمة ودقة التنفيذ.</p>
-            <div class="tags">
-                <span class="tag">System Architecture</span>
-                <span class="tag">Real-time DB</span>
-            </div>
+            <h3>Order Logic System</h3>
+            <p>محرك منطقي لمتابعة دورة حياة الطلبات البرمجية وضمان جودة التنفيذ عبر مراحل متعددة.</p>
         </div>
-
         <div class="project-card">
-            <h3>Custom Biometric Auth</h3>
-            <p>وحدة برمجية مخصصة لتسجيل الدخول عبر البصمة والتعرف على الوجه لتطبيقات الخدمة.</p>
-            <div class="tags">
-                <span class="tag">Security</span>
-                <span class="tag">UI/UX</span>
-            </div>
+            <h3>Portfolio Dev Page</h3>
+            <p>بناء وتطوير المواقع التعريفية للمطورين والربط البرمجي مع مستودعات GitHub.</p>
         </div>
     </div>
 
     <footer>
-        <div class="footer-info">طارق يحيى زكريا حسن الاسود</div>
-        <div style="color: var(--text-dim); font-size: 14px;">
-            جميع الحقوق محفوظة للمطور طارق يحيى زكريا حسن الاسود © 2026
-            <br><br>
-            <span style="font-size: 11px; color: #444;">Developer Identity Verified | Tarek-Yehia-Official-Dev</span>
-        </div>
+        المطور طارق يحيى زكريا حسن الاسود © 2026
+        <br>
+        <span style="font-size: 11px;">Official Developer Site | Verified Profile</span>
     </footer>
 </div>
 
 </body>
 </html>
+
